@@ -1,0 +1,33 @@
+<div {...attrs} ref:root>
+    <svelte:component this="{Component}" />
+</div>
+
+<script>
+export default {
+    data : () => ({
+        // svelte3 component to invoke
+        component : false,
+
+        // props for svelte3 component
+        props : false,
+
+        // Attributes to apply to the placeholder <div> this component has to create
+        attrs : false,
+    }),
+
+    oncreate() {
+        const { component, props } = this.get();
+
+        this.instance = new component({
+            target : this.refs.root,
+            props,
+        });
+
+        this.on("state", ({ current }) => this.instance.$set(current.props));
+    },
+
+    ondestroy() {
+        this.instance.$destroy();
+    },
+};
+</script>
