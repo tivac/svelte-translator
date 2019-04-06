@@ -18,6 +18,10 @@ export default {
     oncreate() {
         const { component, props } = this.get();
 
+        if(!component || typeof component !== "function") {
+            throw new Error("Invalid svelte3 component passed to wrapper");
+        }
+
         this.instance = new component({
             target : this.refs.root,
             props,
