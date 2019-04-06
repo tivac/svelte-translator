@@ -1,58 +1,86 @@
-/**
- * @jest-environment jsdom
- */
+"use strict";
 
-const fs = require("fs");
-
-const svelte2 = require("svelte2");
-const svelte3 = require("svelte3/compiler.js");
-const load = require("require-from-string");
-
-const html = require.resolve("../component.html");
-const raw = fs.readFileSync(html, "utf8");
+const wait = require("p-immediate");
 
 describe("3in2 component wrapper", () => {
-    let Wrapper;
+    const Wrapper = require("../component.html");
+    const { default : Component } = require("./specimens/component.svelte");
     
-    beforeEach(async () => {
-        const { js } = svelte2.compile(raw, {
-            filename   : html,
-            name       : "Wrapper",
-            format     : "cjs",
-            sveltePath : "svelte3"
-        });
+    let root;
 
-        // console.log(js.code);
-
-        Wrapper = load(js.code, html);
+    beforeEach(() => {
+        root = document.createElement("div");
     });
 
-    it("should render a svelte3 component inside a svelte2 wrapper", async () => {
-        const filename = require.resolve("./specimens/component.svelte");
+    it("should render a svelte3 component", async () => {
+        new Wrapper({
+            target : root,
 
-        const { js } = svelte3.compile(fs.readFileSync(filename, "utf8"), {
-            filename,
-            name       : "Nested",
-            format     : "cjs",
-            sveltePath : "svelte3",
+            data : {
+                component : Component,
+            },
         });
 
-        const Component = load(js.code, filename).default;
+        expect(root.innerHTML).toMatchSnapshot();
+    });
+    
+    it("should render a svelte3 component w/ props", async () => {
+        new Wrapper({
+            target : root,
 
-        console.log(global.document);
+            data : {
+                component : Component,
 
-        const root = document.createElement("div");
+                props : {
+                    answer : "42",
+                },
+            },
+        });
 
-        // TODO: figure out how to load a string from svelte into the current node process that
-        // has access to jest globals
-        const test = load(`module.exports = () => console.log(global.document);`);
+        expect(root.innerHTML).toMatchSnapshot();
+    });
+   
+    it("should update the svelte3 component when props change", async () => {
+        const wrapper = new Wrapper({
+            target : root,
 
-        test();
+            data : {
+                component : Component,
 
-        // new Wrapper({
-        //     target : root,
-        // });
+                props : {
+                    answer : "42",
+                },
+            },
+        });
 
-        console.log(root.outerHTML);
+        expect(root.innerHTML).toMatchSnapshot();
+        
+        wrapper.set({
+            props : {
+                answer : "science",
+            },
+        });
+
+        await wait();
+        
+        expect(root.innerHTML).toMatchSnapshot();
+    });
+    
+    it("should set attributes on the wrapper element it creates", async () => {
+        new Wrapper({
+            target : root,
+            
+            data : {
+                component : Component,
+
+                attrs : {
+                    class      : "class",
+                    style      : "color: red;",
+                    "data-foo" : "data-foo",
+                }
+            },
+        });
+
+        expect(root.innerHTML).toMatchSnapshot();
     });
 });

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`3in2 component wrapper should render a svelte3 component 1`] = `
+
+<div>
+  <p>
+    The answer is a mystery
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should render a svelte3 component w/ props 1`] = `
+
+<div>
+  <p>
+    The answer is 42
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should set attributes on the wrapper element it creates 1`] = `
+
+<div class="class"
+     style="color: red;"
+     data-foo="data-foo"
+>
+  <p>
+    The answer is a mystery
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should update the svelte3 component when props change 1`] = `
+
+<div>
+  <p>
+    The answer is 42
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should update the svelte3 component when props change 2`] = `
+
+<div>
+  <p>
+    The answer is science
+  </p>
+</div>
+
+`;
