@@ -8,6 +8,12 @@ module.exports = {
     ],
 
     snapshotSerializers : [
-        require.resolve("snapshot-diff/serializer.js"),
+        "snapshot-diff/serializer.js",
+        "jest-serializer-html",
     ],
+
+    transform : {
+        ".svelte$" : "<rootDir>/test/transforms/svelte.js",
+        ".html$"   : "<rootDir>/test/transforms/html.js",
+    }
 };
