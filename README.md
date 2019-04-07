@@ -29,7 +29,7 @@ $> npm install svelte2@npm:svelte@2
 $> npm install svelte3@npm:svelte@3.0.0-beta.22
 ```
 
-⚠ Make sure you update any existing references to `svelte` to point to `svelte2` or `svelte3` depending on which you were using previously! ⚠
+⚠ Make sure you **update any existing references** to `svelte` to point to `svelte2` or `svelte3` depending on which you were using previously!
 
 ## Usage
 
