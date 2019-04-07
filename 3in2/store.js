@@ -1,30 +1,35 @@
 import { Store as Svelte2Store } from "svelte2/store.js";
 
-export class Store extends Svelte2Store {
+class AdapterStore extends Svelte2Store {
     constructor(store) {
-        super();
+        super({});
 
         this._store = store;
-        this._set = this.set;
+
+        // Save a reference to the original set before it's overwritten below
+        this.__set = this.set;
         
         const unsubscribe = store.subscribe((value) => {
             // Objects are splatted
             if(typeof value === "object" && !Array.isArray(value)) {
-                return this.set(value);
+                return this.__set(value);
             }
 
             // Everything else is set to the "value" property
-            this._set({ value });
+            return this.__set({ value });
         });
 
         this.unsubscribe = unsubscribe;
 
+        // Provide a guarded .set in case the store isn't writable
         this.set = (args) => {
             if(!this._store.set) {
                 throw new Error("Called .set() on a readable store");
             }
 
-            this._set(args);
+            this._store.set(args);
         };
     }
-};
+}
+
+export default AdapterStore;
