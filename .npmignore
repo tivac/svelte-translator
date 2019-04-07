@@ -1,0 +1,5 @@
+tests
+test
+.eslintrc.js
+*.config.js
+.git*
