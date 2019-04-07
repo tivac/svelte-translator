@@ -22,12 +22,14 @@ Use svelte 2 features inside svelte 3, and use svelte 3 features inside svelte 2
 $> npm install svelte-translator
 ```
 
-You'll also need to use `npm@6.9.0` or higher so that you can install svelte2 and svelte3 side-by-side and ensure you update any existing references to `svelte` to point to `svelte2` or `svelte3` depending on which you were using previously.
+You'll also need to use `npm@6.9.0` or higher so that you can install svelte2 and svelte3 side-by-side.
 
 ```
 $> npm install svelte2@npm:svelte@2
 $> npm install svelte3@npm:svelte@3.0.0-beta.22
 ```
+
+⚠ Make sure you update any existing references to `svelte` to point to `svelte2` or `svelte3` depending on which you were using previously! ⚠
 
 ## Usage
 
