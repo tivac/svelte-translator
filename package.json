@@ -29,7 +29,12 @@
     "jest-serializer-html": "^6.0.0",
     "p-immediate": "^3.1.0",
     "require-from-string": "^2.0.2",
-    "snapshot-diff": "^0.5.1"
+    "rollup": "^1.9.0",
+    "rollup-plugin-hypothetical": "^2.1.0",
+    "rollup-plugin-node-resolve": "^4.2.1",
+    "snapshot-diff": "^0.5.1",
+    "svelte2": "npm:svelte@^2.16.1",
+    "svelte3": "npm:svelte@^3.0.0-beta.22"
   },
   "peerDependencies": {
     "svelte2": "npm:svelte@^2.16.1",
