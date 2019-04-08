@@ -1,11 +1,14 @@
 const svelte = require("svelte3/compiler.js");
-const { createFilter } = require('rollup-pluginutils');
+const { createFilter } = require("rollup-pluginutils");
 
 const defaults = {
-    include : [ "**/*.svelte" ],
-    exclude : [ "**/node_modules/**" ],
+    include    : [ /\.svelte$/ ],
+    exclude    : [ "**/node_modules/**" ],
     preprocess : [],
-    options : {},
+    options    : {
+        format     : "esm",
+        sveltePath : "svelte3"
+    },
 };
 
 module.exports = (args = {}) => {
@@ -26,7 +29,7 @@ module.exports = (args = {}) => {
 
             const { code : processed, dependencies } = await svelte.preprocess(code, options.preprocess, { filename });
 
-            dependencies.forEach((dep) => this.addwatchFile(dep));
+            dependencies.forEach((dep) => this.addWatchFile(dep));
 
             const { js, warnings } = svelte.compile(processed, {
                 ...options.options,
