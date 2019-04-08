@@ -23,6 +23,24 @@ describe("3in2 component wrapper", () => {
 
         expect(root.innerHTML).toMatchSnapshot();
     });
+
+    it("should throw if not given a svelte3 component", async () => {
+        expect(() => new Wrapper({ target : root })).toThrowErrorMatchingSnapshot();
+    });
+
+    it("should destroy the svelte3 component when the wrapper is destroyed", async () => {
+        const wrapper = new Wrapper({
+            target : root,
+
+            data : {
+                component : Component,
+            },
+        });
+
+        wrapper.destroy();
+
+        expect(wrapper.instance).toBeNull();
+    });
     
     it("should render a svelte3 component w/ props", async () => {
         new Wrapper({
