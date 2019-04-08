@@ -18,6 +18,7 @@ export default {
     oncreate() {
         const { component, props } = this.get();
 
+        // TODO: someday this should support runtime setting/switching of the component value
         if(!component || typeof component !== "function") {
             throw new Error("Invalid svelte3 component passed to wrapper");
         }
@@ -32,6 +33,7 @@ export default {
 
     ondestroy() {
         this.instance.$destroy();
+        this.instance = null;
     },
 };
 </script>
