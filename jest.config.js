@@ -21,5 +21,10 @@ module.exports = {
     transformIgnorePatterns : [
         "/node_modules/(?!(svelte2/))",
         "/test/",
-    ]
+    ],
+
+    coveragePathIgnorePatterns : [
+        "/node_modules/",
+        "/specimens/",
+    ],
 };
