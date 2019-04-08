@@ -1,5 +1,5 @@
+.*
+*.config.js
 tests
 test
-.eslintrc.js
-*.config.js
-.git*
+coverage
