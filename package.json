@@ -4,7 +4,11 @@
   "description": "Tools for combining svelte2 and svelte3",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "release": "npm version -m \"v%s\"",
+    "preversion": "npm test",
+    "version": "changes",
+    "postversion": "git push --follow-tags && npm publish"
   },
   "keywords": [
     "svelte",
@@ -18,6 +22,7 @@
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.4.3",
+    "@studio/changes": "^1.7.0",
     "@tivac/eslint-config": "^2.3.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
