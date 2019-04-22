@@ -1,4 +1,4 @@
-const { readable, writable } = require("svelte3/store");
+const { readable, writable } = require("svelte/store");
 const Adapter = require("../../store.js");
 
 const noop = () => {};

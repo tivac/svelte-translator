@@ -1,4 +1,4 @@
-const svelte3 = require("svelte3/compiler.js");
+const svelte3 = require("svelte/compiler.js");
 
 module.exports = {
     process(src, filename) {
@@ -7,7 +7,7 @@ module.exports = {
             {
                 filename,
                 format     : "cjs",
-                sveltePath : "svelte3"
+                sveltePath : "svelte"
             }
         );
 

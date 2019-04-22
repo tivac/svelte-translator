@@ -1,6 +1,6 @@
 "use strict";
 
-const { writable } = require("svelte3/store");
+const { writable } = require("svelte/store");
 const Adapter = require("../store.js");
 
 const {

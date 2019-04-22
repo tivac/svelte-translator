@@ -26,7 +26,7 @@ You'll also need to use `npm@6.9.0` or higher so that you can install svelte2 an
 
 ```
 $> npm install svelte2@npm:svelte@2
-$> npm install svelte3@npm:svelte@3.0.0-beta.22
+$> npm install svelte@latest
 ```
 
 ⚠ Make sure you **update any existing references** to `svelte` to point to `svelte2` or `svelte3` depending on which you were using previously!
@@ -67,7 +67,7 @@ export default {
 A small svelte2 store that expects to be passed either a `readable` or `writable` svelte3 store and will make the value of the svelte3 store available to components using the standard APIs.
 
 ```js
-import { readable } from "svelte3/store";
+import { readable } from "svelte/store";
 import Adapter from "svelte-translator/3in2/store.js";
 
 const s3r = readable(0);

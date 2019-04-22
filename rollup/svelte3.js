@@ -1,4 +1,4 @@
-const svelte = require("svelte3/compiler.js");
+const svelte = require("svelte/compiler.js");
 const { createFilter } = require("rollup-pluginutils");
 
 const defaults = {
@@ -7,7 +7,7 @@ const defaults = {
     preprocess : [],
     options    : {
         format     : "esm",
-        sveltePath : "svelte3"
+        sveltePath : "svelte"
     },
 };
 
