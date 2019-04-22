@@ -8,11 +8,12 @@ Use svelte 2 features inside svelte 3, and use svelte 3 features inside svelte 2
 | ---: | :---: | :---: |
 | Stores | ✔ | 💭 |
 | Components | ✔ | 💭 |
-| Rollup Bundling | 💭 | 💭 |
+| Rollup Bundling | 🔧 | 🔧 |
 
 **Legend**
 
 - ✔ feature exists and works
+- 🔧 feature in progress
 - 💭 feature is planned
 - 🤔 feature isn't planned
 
@@ -29,11 +30,11 @@ $> npm install svelte2@npm:svelte@2
 $> npm install svelte@latest
 ```
 
-⚠ Make sure you **update any existing references** to `svelte` to point to `svelte2` or `svelte3` depending on which you were using previously!
+⚠️ Make sure you **update any existing references** to `svelte` to point to `svelte2` now that svelte v3 is the default
 
 ## Usage
 
-### Svelte3-in-Svelte2
+### Svelte v3 in Svelte v2
 
 #### Components
 
@@ -92,3 +93,11 @@ s3w.subscribe((value) => {
     // { fooga : 2, booga : 0 }
 });
 ```
+
+### Svelte v2 in Svelte v3
+
+Still in progress
+
+### Rollup bundling of Svelte v2 & Svelte v3
+
+Basic functionality exists, but use at your own risk.
