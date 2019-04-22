@@ -19,7 +19,7 @@ cache:
 
 before_install:
 - npm config set loglevel warn
-# Set up npm 6 for installs since we need `npm ci` to exist in every environment
+# Ensure there is npm@6.9.0 at minimum since we need aliasing support
 - npm install --global npm@latest
 
 # Use npm ci for faster/safer installs
