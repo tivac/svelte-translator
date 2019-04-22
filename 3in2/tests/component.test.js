@@ -4,7 +4,8 @@ const wait = require("p-immediate");
 
 describe("3in2 component wrapper", () => {
     const Wrapper = require("../component.html");
-    const { default : Component } = require("./specimens/component.svelte");
+    const { default : ComponentA } = require("./specimens/component-a.svelte");
+    const { default : ComponentB } = require("./specimens/component-b.svelte");
     
     let root;
 
@@ -17,7 +18,7 @@ describe("3in2 component wrapper", () => {
             target : root,
 
             data : {
-                component : Component,
+                component : ComponentA,
             },
         });
 
@@ -25,7 +26,12 @@ describe("3in2 component wrapper", () => {
     });
 
     it("should throw if not given a svelte3 component", async () => {
-        expect(() => new Wrapper({ target : root })).toThrowErrorMatchingSnapshot();
+        expect(() => new Wrapper({
+            target : root,
+            data   : {
+                component : true
+            },
+        })).toThrowErrorMatchingSnapshot();
     });
 
     it("should destroy the svelte3 component when the wrapper is destroyed", async () => {
@@ -33,7 +39,7 @@ describe("3in2 component wrapper", () => {
             target : root,
 
             data : {
-                component : Component,
+                component : ComponentA,
             },
         });
 
@@ -47,10 +53,10 @@ describe("3in2 component wrapper", () => {
             target : root,
 
             data : {
-                component : Component,
+                component : ComponentA,
 
                 props : {
-                    answer : "42",
+                    a : "A",
                 },
             },
         });
@@ -63,10 +69,10 @@ describe("3in2 component wrapper", () => {
             target : root,
 
             data : {
-                component : Component,
+                component : ComponentA,
 
                 props : {
-                    answer : "42",
+                    a : "A",
                 },
             },
         });
@@ -75,8 +81,48 @@ describe("3in2 component wrapper", () => {
         
         wrapper.set({
             props : {
-                answer : "science",
+                a : "A2",
             },
+        });
+
+        await wait();
+        
+        expect(root.innerHTML).toMatchSnapshot();
+    });
+    
+    it("should support swapping out the svelte3 component", async () => {
+        const wrapper = new Wrapper({
+            target : root,
+
+            data : {
+                component : ComponentA,
+
+                props : {
+                    a : "A",
+                },
+            },
+        });
+
+        expect(root.innerHTML).toMatchSnapshot();
+        
+        wrapper.set({
+            component : ComponentB,
+        });
+
+        await wait();
+        
+        expect(root.innerHTML).toMatchSnapshot();
+    });
+    
+    it("should support creation without a component", async () => {
+        const wrapper = new Wrapper({
+            target : root,
+        });
+
+        expect(root.innerHTML).toMatchSnapshot();
+        
+        wrapper.set({
+            component : ComponentB,
         });
 
         await wait();
@@ -89,7 +135,7 @@ describe("3in2 component wrapper", () => {
             target : root,
             
             data : {
-                component : Component,
+                component : ComponentA,
 
                 attrs : {
                     class      : "class",

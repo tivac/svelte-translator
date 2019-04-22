@@ -1,6 +1,4 @@
-<div {...attrs} ref:root>
-    <svelte:component this="{Component}" />
-</div>
+<div {...attrs} ref:target />
 
 <script>
 export default {
@@ -15,20 +13,52 @@ export default {
         attrs : false,
     }),
 
+    methods : {
+        instantiate() {
+            const { component, props } = this.get();
+            const { target } = this.refs;
+
+            // Cleanup any previous component instance first
+            if(this.instance) {
+                this.cleanup();
+            }
+
+            if(!component || typeof component !== "function") {
+                throw new Error("Invalid svelte3 component passed to wrapper");
+            }
+
+            this.instance = new component({
+                target,
+                props,
+            });
+        },
+
+        cleanup() {
+            this.instance.$destroy();
+            this.instance = null;
+        },
+    },
+
     oncreate() {
-        const { component, props } = this.get();
+        const { component } = this.get();
 
-        // TODO: someday this should support runtime setting/switching of the component value
-        if(!component || typeof component !== "function") {
-            throw new Error("Invalid svelte3 component passed to wrapper");
-        }
+        if(component) {
+            this.instantiate();
+        }    
 
-        this.instance = new component({
-            target : this.refs.root,
-            props,
+        this.on("state", ({ changed, current }) => {
+            if(changed.component) {
+                this.instantiate();
+
+                return;
+            }
+            
+            if(changed.props && this.instance) {
+                this.instance.$set(current.props)
+
+                return;
+            }
         });
-
-        this.on("state", ({ current }) => this.instance.$set(current.props));
     },
 
     ondestroy() {

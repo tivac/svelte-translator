@@ -4,7 +4,7 @@ exports[`3in2 component wrapper should render a svelte3 component 1`] = `
 
 <div>
   <p>
-    The answer is a mystery
+    a? a!
   </p>
 </div>
 
@@ -14,7 +14,7 @@ exports[`3in2 component wrapper should render a svelte3 component w/ props 1`] =
 
 <div>
   <p>
-    The answer is 42
+    a? A!
   </p>
 </div>
 
@@ -27,7 +27,44 @@ exports[`3in2 component wrapper should set attributes on the wrapper element it 
      data-foo="data-foo"
 >
   <p>
-    The answer is a mystery
+    a? a!
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should support creation without a component 1`] = `
+
+<div>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should support creation without a component 2`] = `
+
+<div>
+  <p>
+    B? b!
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should support swapping out the svelte3 component 1`] = `
+
+<div>
+  <p>
+    a? A!
+  </p>
+</div>
+
+`;
+
+exports[`3in2 component wrapper should support swapping out the svelte3 component 2`] = `
+
+<div>
+  <p>
+    B? b!
   </p>
 </div>
 
@@ -39,7 +76,7 @@ exports[`3in2 component wrapper should update the svelte3 component when props c
 
 <div>
   <p>
-    The answer is 42
+    a? A!
   </p>
 </div>
 
@@ -49,7 +86,7 @@ exports[`3in2 component wrapper should update the svelte3 component when props c
 
 <div>
   <p>
-    The answer is science
+    a? A2!
   </p>
 </div>
 
