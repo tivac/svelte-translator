@@ -33,7 +33,8 @@ module.exports = (args = {}) => {
             const { js } = compile(result.toString(), {
                 onwarn : (warning) => this.warn(warning),
                 
-                ...options.options,
+                ...defaults.options,
+                ...(args.options || {}),
                 
                 filename,
             });

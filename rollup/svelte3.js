@@ -32,7 +32,8 @@ module.exports = (args = {}) => {
             dependencies.forEach((dep) => this.addWatchFile(dep));
 
             const { js, warnings } = compile(processed, {
-                ...options.options,
+                ...defaults.options,
+                ...(args.options || {}),
                 
                 filename,
             });
