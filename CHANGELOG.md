@@ -1,3 +1,17 @@
+# [2.1.0](https://github.com/tivac/svelte-translator/compare/v2.0.1...v2.1.0) (2019-05-02)
+
+
+### Bug Fixes
+
+* **rollup:** use correct preprocessor args ([550ca5d](https://github.com/tivac/svelte-translator/commit/550ca5d))
+
+
+### Features
+
+* **rollup:** pass params to svelte compilers ([94ec5ae](https://github.com/tivac/svelte-translator/commit/94ec5ae))
+
+
+
 ## [2.0.1](https://github.com/tivac/svelte-translator/compare/v2.0.0...v2.0.1) (2019-04-22)
 
 
