@@ -7,8 +7,7 @@
     "test": "jest",
     "release": "npm version",
     "preversion": "npm test",
-    "version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
-    "postversion": "git push --follow-tags && npm publish"
+    "version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file"
   },
   "keywords": [
     "svelte",
