@@ -8,7 +8,7 @@ Use svelte 2 features inside svelte 3, and use svelte 3 features inside svelte 2
 | ---: | :---: | :---: |
 | Stores | ✔ | 💭 |
 | Components | ✔ | 💭 |
-| Rollup Bundling | 🔧 | 🔧 |
+| Rollup Bundling | ✔ | ✔ |
 
 **Legend**
 
@@ -100,4 +100,32 @@ Still in progress
 
 ### Rollup bundling of Svelte v2 & Svelte v3
 
-Basic functionality exists, but use at your own risk.
+#### Loading Svelte2 Components
+
+```js
+require("svelte-translator/rollup/svelte2.js")({
+    // Optional preprocessor
+    preprocess : { ... },
+
+    // Options for the svelte compiler
+    options : {
+        dev : true
+    },
+}),
+```
+
+#### Loading Svelte3 Components
+
+```js
+require("svelte-translator/rollup/svelte3.js")({
+    // Optional preprocessors
+    preprocess : [
+        { ... },
+    ],
+
+    // Options for the svelte compiler
+    options : {
+        dev : true
+    },
+}),
+```
