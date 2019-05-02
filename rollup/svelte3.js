@@ -1,4 +1,4 @@
-const svelte = require("svelte/compiler.js");
+const { compile, preprocess } = require("svelte/compiler.js");
 const { createFilter } = require("rollup-pluginutils");
 
 const defaults = {
@@ -27,11 +27,11 @@ module.exports = (args = {}) => {
                 return null;
             }
 
-            const { code : processed, dependencies } = await svelte.preprocess(code, options.preprocess, { filename });
+            const { code : processed, dependencies } = await preprocess(code, options.preprocess, { filename });
 
             dependencies.forEach((dep) => this.addWatchFile(dep));
 
-            const { js, warnings } = svelte.compile(processed, {
+            const { js, warnings } = compile(processed, {
                 ...options.options,
                 
                 filename,
