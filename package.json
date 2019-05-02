@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "release": "npm version -m \"v%s\"",
+    "release": "npm version",
     "preversion": "npm test",
+    "version": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file",
     "postversion": "git push --follow-tags && npm publish"
   },
   "keywords": [
