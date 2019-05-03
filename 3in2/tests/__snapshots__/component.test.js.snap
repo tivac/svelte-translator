@@ -2,71 +2,68 @@
 
 exports[`3in2 component wrapper should render a svelte3 component 1`] = `
 
-<div>
-  <p>
-    a? a!
-  </p>
-</div>
+<p>
+  a? a!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should render a svelte3 component w/ props 1`] = `
 
-<div>
-  <p>
-    a? A!
-  </p>
-</div>
+<p>
+  a? A!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should set attributes on the wrapper element it creates 1`] = `
 
-<div class="class"
-     style="color: red;"
-     data-foo="data-foo"
->
-  <p>
-    a? a!
-  </p>
-</div>
+<p>
+  a? a!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should support creation without a component 1`] = `
 
-<div>
-</div>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should support creation without a component 2`] = `
 
-<div>
-  <p>
-    B? b!
-  </p>
-</div>
+<p>
+  B? b!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should support swapping out the svelte3 component 1`] = `
 
-<div>
-  <p>
-    a? A!
-  </p>
-</div>
+<p>
+  a? A!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should support swapping out the svelte3 component 2`] = `
 
-<div>
-  <p>
-    B? b!
-  </p>
-</div>
+<p>
+  B? b!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
@@ -74,20 +71,20 @@ exports[`3in2 component wrapper should throw if not given a svelte3 component 1`
 
 exports[`3in2 component wrapper should update the svelte3 component when props change 1`] = `
 
-<div>
-  <p>
-    a? A!
-  </p>
-</div>
+<p>
+  a? A!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
 
 exports[`3in2 component wrapper should update the svelte3 component when props change 2`] = `
 
-<div>
-  <p>
-    a? A2!
-  </p>
-</div>
+<p>
+  a? A2!
+</p>
+<span data-svelte-translator="3in2-wrapper-anchor">
+</span>
 
 `;
