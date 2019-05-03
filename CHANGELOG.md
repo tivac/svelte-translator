@@ -1,3 +1,19 @@
+# [3.0.0](https://github.com/tivac/svelte-translator/compare/v2.1.0...v3.0.0) (2019-05-03)
+
+
+### Features
+
+* **3in2:** No object spread, and no <div> wrapper ([ddb2795](https://github.com/tivac/svelte-translator/commit/ddb2795))
+* **3in2:** pass props along transparently ([371a370](https://github.com/tivac/svelte-translator/commit/371a370))
+
+
+### BREAKING CHANGES
+
+* **3in2:** Instead of inserting a `<div>` that contaiins the svelte3 component now a `<span>` will be injected and used as an anchor point so that the svelte3 component is in the correct place in the DOM hierarchy without an extra wrapping element.
+* **3in2:** Previously props to be passed to the svelte3 component would be set in a `props` object, now they live alongside the special `component` and `attrs` properties. This facilitates easier porting of code since the wrapper component can be instantiated & have updated props passed to it exactly like the svelte2 component did previously.
+
+
+
 # [2.1.0](https://github.com/tivac/svelte-translator/compare/v2.0.1...v2.1.0) (2019-05-02)
 
 
