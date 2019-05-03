@@ -55,9 +55,7 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                props : {
-                    a : "A",
-                },
+                a : "A",
             },
         });
 
@@ -71,18 +69,14 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                props : {
-                    a : "A",
-                },
+                a : "A",
             },
         });
 
         expect(root.innerHTML).toMatchSnapshot();
         
         wrapper.set({
-            props : {
-                a : "A2",
-            },
+            a : "A2",
         });
 
         await wait();
@@ -97,9 +91,7 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                props : {
-                    a : "A",
-                },
+                a : "A",
             },
         });
 

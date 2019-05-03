@@ -15,7 +15,7 @@ export default {
 
     methods : {
         instantiate() {
-            const { component, props } = this.get();
+            const { component, attrs, ...props } = this.get();
             const { target } = this.refs;
 
             // Cleanup any previous component instance first
@@ -34,6 +34,10 @@ export default {
         },
 
         cleanup() {
+            if(!this.instance) {
+                return;
+            }
+
             this.instance.$destroy();
             this.instance = null;
         },
@@ -48,22 +52,19 @@ export default {
 
         this.on("state", ({ changed, current }) => {
             if(changed.component) {
-                this.instantiate();
-
-                return;
+                return this.instantiate();
             }
             
-            if(changed.props && this.instance) {
-                this.instance.$set(current.props)
+            if(this.instance) {
+                const { component, attrs, ...props } = current;
 
-                return;
+                return this.instance.$set(props);
             }
         });
     },
 
     ondestroy() {
-        this.instance.$destroy();
-        this.instance = null;
+        this.cleanup();
     },
 };
 </script>
