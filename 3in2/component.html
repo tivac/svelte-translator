@@ -1,4 +1,4 @@
-<div {...attrs} ref:target />
+<span ref:anchor data-svelte-translator="3in2-wrapper-anchor" />
 
 <script>
 export default {
@@ -6,17 +6,14 @@ export default {
         // svelte3 component to invoke
         component : false,
 
-        // props for svelte3 component
-        props : false,
-
-        // Attributes to apply to the placeholder <div> this component has to create
-        attrs : false,
+        // All values are passed to the svelte3 component as props!
     }),
 
     methods : {
         instantiate() {
-            const { component, attrs, ...props } = this.get();
-            const { target } = this.refs;
+            const props = this.get();
+            const { component } = props;
+            const { anchor } = this.refs;
 
             // Cleanup any previous component instance first
             if(this.instance) {
@@ -28,7 +25,8 @@ export default {
             }
 
             this.instance = new component({
-                target,
+                target : anchor.parentNode,
+                anchor,
                 props,
             });
         },
@@ -56,9 +54,7 @@ export default {
             }
             
             if(this.instance) {
-                const { component, attrs, ...props } = current;
-
-                return this.instance.$set(props);
+                return this.instance.$set(current);
             }
         });
     },
