@@ -1,11 +1,11 @@
-import Adapter from "../../store.js";
+import { Store } from "../../store.js";
 
-const simple = new Adapter({
+const simple = new Store({
     one : 1,
     two : 2,
 });
 
-class ExtendedStore extends Adapter {
+class ExtendedStore extends Store {
     test() {
         return this.get();
     }

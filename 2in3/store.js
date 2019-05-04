@@ -14,5 +14,5 @@ class Svelte3Store extends Store {
     }
 }
 
-export default Svelte3Store;
+export { Svelte3Store as Store };
 
