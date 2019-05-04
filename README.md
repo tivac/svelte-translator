@@ -6,7 +6,7 @@ Use svelte v2 features inside svelte v3, and use svelte v3 features inside svelt
 
 | Feature | Svelte 3 in 2 | Svelte 2 in 3 |
 | ---: | :---: | :---: |
-| Stores | ✔ | 💭 |
+| Stores | ✔ | ✔ |
 | Components | ✔ | 💭 |
 | Rollup Bundling | ✔ | ✔ |
 
@@ -100,7 +100,51 @@ s3w.subscribe((value) => {
 
 ### Svelte v2 in Svelte v3
 
-Still in progress
+#### Stores
+
+`svelte-translator/2in3/store.js` implements the v3 store contract (`.set()` is provided natively by v2 stores, it implements `.subscribe()` & `.update()`) in a class that extends `svelte/store.js` so it can be a drop-in replacement.
+
+Here's an example of how to make v2 stores usable in v3 components.
+
+```diff
+- import { Store } from "svelte/store.js";
++ import { Store } from "svelte-translator/2in3/store.js";
+```
+
+The `svelte-translator` version is fully functional in v3 components. You can use its values directly within the template, within the component `<script>` block either staticly or in reactive statements, and it can also be used as an input to any `derived` stores.
+
+It also remains a completely valid svelte v2 store that functions just as they always have in your v2 components.
+
+```js
+// my-store.js
+import { Store } from "svelte-translator/2in3/store.js";
+
+const store = new Store({
+    ...
+});
+
+export default store;
+```
+
+```html
+<!-- my-component.html -->
+<div>{$store.foo}</div>
+
+<p>
+{reactive}
+</p>
+
+<span>{$dstore}</span>
+
+<script>
+import store from "./my-store.js";
+import { derived } from "svelte/store";
+
+$: reactive = $store.foo + "ey";
+
+const dstore = derived(store, ($foo, set) => set(foo + "ey));
+</script>
+```
 
 ### Rollup bundling of Svelte v2 & Svelte v3
 

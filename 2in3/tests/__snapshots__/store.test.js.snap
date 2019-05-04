@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`2in3 store adapter should be able to reactively update from store values 1`] = `
+
+<div>
+  1 2 3
+</div>
+
+`;
+
+exports[`2in3 store adapter should be able to reactively update from store values 2`] = `
+
+<div>
+  1 3 4
+</div>
+
+`;
+
+exports[`2in3 store adapter should have a .update() that works 1`] = `
+Object {
+  "one": 1,
+  "three": 3,
+  "two": 2,
+}
+`;
+
+exports[`2in3 store adapter should render derived store values 1`] = `
+
+<div>
+  1 2 3
+</div>
+
+`;
+
+exports[`2in3 store adapter should render derived store values 2`] = `
+
+<div>
+  1 3 4
+</div>
+
+`;
+
+exports[`2in3 store adapter should render extended store values 1`] = `
+
+<div>
+  1 2 {"one":1,"two":2}
+</div>
+
+`;
+
+exports[`2in3 store adapter should render extended store values 2`] = `
+
+<div>
+  1 3 {"one":1,"two":2}
+</div>
+
+`;
+
+exports[`2in3 store adapter should render simple store values 1`] = `
+
+<div>
+  1 2
+</div>
+
+`;
+
+exports[`2in3 store adapter should render simple store values 2`] = `
+
+<div>
+  1 3
+</div>
+
+`;
