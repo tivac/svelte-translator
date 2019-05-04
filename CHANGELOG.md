@@ -1,3 +1,7 @@
+## [3.1.1](https://github.com/tivac/svelte-translator/compare/v3.1.0...v3.1.1) (2019-05-04)
+
+
+
 # [3.1.0](https://github.com/tivac/svelte-translator/compare/v3.0.0...v3.1.0) (2019-05-04)
 
 
