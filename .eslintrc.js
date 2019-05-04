@@ -19,4 +19,9 @@ module.exports = {
     rules : {
         "max-statements" : [ "warn", 25 ],
     },
+
+    // Weird that setting "jest" up above in the env settings doesn't handle this
+    globals : {
+        "document" : true,
+    },
 };
