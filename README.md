@@ -142,7 +142,7 @@ import { derived } from "svelte/store";
 
 $: reactive = $store.foo + "ey";
 
-const dstore = derived(store, ($foo, set) => set(foo + "ey));
+const dstore = derived(store, ($foo, set) => set(foo + "ey"));
 </script>
 ```
 
