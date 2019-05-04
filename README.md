@@ -1,6 +1,6 @@
 # svelte-translator
 
-Use svelte 2 features inside svelte 3, and use svelte 3 features inside svelte 2. Because sometimes there's no amount of automated component rewriting that will make things work but you want to start a gradual transition.
+Use svelte v2 features inside svelte v3, and use svelte v3 features inside svelte v2. Because sometimes there's no amount of automated component rewriting that will make things work but you want to start a gradual transition.
 
 ## Features
 
@@ -15,7 +15,6 @@ Use svelte 2 features inside svelte 3, and use svelte 3 features inside svelte 2
 - ✔ feature exists and works
 - 🔧 feature in progress
 - 💭 feature is planned
-- 🤔 feature isn't planned
 
 ## Installation
 
@@ -23,7 +22,7 @@ Use svelte 2 features inside svelte 3, and use svelte 3 features inside svelte 2
 $> npm install svelte-translator
 ```
 
-You'll also need to use `npm@6.9.0` or higher so that you can install svelte2 and svelte3 side-by-side.
+You'll also need to use `npm@6.9.0` or higher so that you can install `svelte@2` and `svelte@3` side-by-side.
 
 ```
 $> npm install svelte2@npm:svelte@2
@@ -38,10 +37,10 @@ $> npm install svelte@latest
 
 #### Components
 
-Wrap up a svelte3 component so it can be included within a svelte2 component.
+Wrap up a v3 component so it can be included within a svelte2 component.
 
 ```html
-<Wrapper {component} />
+<Wrapper {...props} />
 
 <script>
 import Component from "your-svelte3-component.svelte";
@@ -54,14 +53,19 @@ export default {
     data : () => ({
         component : Component,
     }),
+
+    // This computed is here so that this component can essentially be invisible, it
+    // exists solvely to help the transition and can be removed once v2 is gone
+    computed : {
+        props : (state) => state,
+    },
 };
 ```
 
 | Data | Usage |
 | --- | --- |
-| `component` | The svelte 3 component to wrap up |
-| `props` | Any props to pass to the svelte 3 component. Will cause the component to re-render if they're changed |
-| `attrs` | Any DOM attribute you want to attach to the `<div>` injected by the wrapper (so the svelte3 component has a node to attach to) |
+| `component` | The v3 component to wrap |
+| `...` | All other props on the component are passed directly to the v3 component |
 
 #### Stores
 
