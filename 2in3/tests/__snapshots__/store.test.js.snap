@@ -16,6 +16,14 @@ exports[`2in3 store adapter should be able to reactively update from store value
 
 `;
 
+exports[`2in3 store adapter should have a .update() that works 1`] = `
+Object {
+  "one": 1,
+  "three": 3,
+  "two": 2,
+}
+`;
+
 exports[`2in3 store adapter should render derived store values 1`] = `
 
 <div>

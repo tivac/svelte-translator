@@ -90,4 +90,10 @@ describe("2in3 store adapter", () => {
         
         expect(root.innerHTML).toMatchSnapshot();
     });
+
+    it("should have a .update() that works", async () => {
+        simple.update(({ one, two }) => ({ three : one + two }));
+
+        expect(simple.get()).toMatchSnapshot();
+    });
 });
