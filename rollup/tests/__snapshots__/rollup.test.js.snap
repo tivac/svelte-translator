@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`svelte-translator rollup plugins should capture all warnings 1`] = `
+Array [
+  Object {
+    "message": "A11y: <img> element should have an alt attribute",
+    "plugin": "svelte-translator-rollup-svelte2",
+    "pluginCode": "a11y-missing-attribute",
+  },
+  Object {
+    "message": "A11y: <img> element should have an alt attribute",
+    "plugin": "svelte-translator-rollup-svelte3",
+    "pluginCode": "a11y-missing-attribute",
+  },
+]
+`;
