@@ -46,13 +46,15 @@ export default {
 
         if(component) {
             this.instantiate();
-        }    
+        }
 
-        this.on("state", ({ changed, current }) => {
-            if(changed.component) {
+        this.on("state", ({ changed, current, previous }) => {
+            // Second check is because svelte's diffing is pretty basic by default, so
+            // we need to be smarter about allowing inntances to persist
+            if(changed.component && (current.component !== previous.component)) {
                 return this.instantiate();
             }
-            
+
             if(this.instance) {
                 return this.instance.$set(current);
             }

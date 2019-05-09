@@ -6,7 +6,7 @@ describe("3in2 component wrapper", () => {
     const Wrapper = require("../component.html");
     const { default : ComponentA } = require("./specimens/component-a.svelte");
     const { default : ComponentB } = require("./specimens/component-b.svelte");
-    
+
     let root;
 
     beforeEach(() => {
@@ -47,7 +47,7 @@ describe("3in2 component wrapper", () => {
 
         expect(wrapper.instance).toBeNull();
     });
-    
+
     it("should render a svelte3 component w/ props", async () => {
         new Wrapper({
             target : root,
@@ -61,7 +61,7 @@ describe("3in2 component wrapper", () => {
 
         expect(root.innerHTML).toMatchSnapshot();
     });
-   
+
     it("should update the svelte3 component when props change", async () => {
         const wrapper = new Wrapper({
             target : root,
@@ -74,16 +74,39 @@ describe("3in2 component wrapper", () => {
         });
 
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         wrapper.set({
             a : "A2",
         });
 
         await wait();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
+    it("shouldn't recreate the svelte3 component when props change", async () => {
+        const wrapper = new Wrapper({
+            target : root,
+
+            data : {
+                component : ComponentA,
+
+                a : "A",
+            },
+        });
+
+        const child = wrapper.instance;
+
+        wrapper.set({
+            component : ComponentA,
+            a : "A2",
+        });
+
+        await wait();
+
+        expect(child).toBe(wrapper.instance);
+    });
+
     it("should support swapping out the svelte3 component", async () => {
         const wrapper = new Wrapper({
             target : root,
@@ -96,36 +119,36 @@ describe("3in2 component wrapper", () => {
         });
 
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         wrapper.set({
             component : ComponentB,
         });
 
         await wait();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
     it("should support creation without a component", async () => {
         const wrapper = new Wrapper({
             target : root,
         });
 
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         wrapper.set({
             component : ComponentB,
         });
 
         await wait();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
     it("should set attributes on the wrapper element it creates", async () => {
         new Wrapper({
             target : root,
-            
+
             data : {
                 component : ComponentA,
 
