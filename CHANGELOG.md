@@ -1,3 +1,12 @@
+## [3.1.2](https://github.com/tivac/svelte-translator/compare/v3.1.1...v3.1.2) (2019-05-09)
+
+
+### Bug Fixes
+
+* **3in2:** smarter diff check for component values ([cff84bf](https://github.com/tivac/svelte-translator/commit/cff84bf))
+
+
+
 ## [3.1.1](https://github.com/tivac/svelte-translator/compare/v3.1.0...v3.1.1) (2019-05-04)
 
 
