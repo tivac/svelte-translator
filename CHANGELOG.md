@@ -1,3 +1,12 @@
+## [3.1.3](https://github.com/tivac/svelte-translator/compare/v3.1.2...v3.1.3) (2019-05-17)
+
+
+### Bug Fixes
+
+* **rollup:** Given components reasonable names ([4ca036e](https://github.com/tivac/svelte-translator/commit/4ca036e))
+
+
+
 ## [3.1.2](https://github.com/tivac/svelte-translator/compare/v3.1.1...v3.1.2) (2019-05-09)
 
 
