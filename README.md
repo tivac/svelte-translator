@@ -6,9 +6,9 @@ Use svelte v2 features inside svelte v3, and use svelte v3 features inside svelt
 
 | Feature | Svelte 3 in 2 | Svelte 2 in 3 |
 | ---: | :---: | :---: |
-| Stores | ✔ | ✔ |
-| Components | ✔ | 💭 |
-| Rollup Bundling | ✔ | ✔ |
+| Stores | [✔](#stores) | [✔](#stores-1) |
+| Components | [✔](#components) | 💭 |
+| Rollup Bundling | [✔](#loading-svelte3-components) | [✔](#loading-svelte2-components) |
 
 **Legend**
 
