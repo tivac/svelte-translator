@@ -33,7 +33,7 @@ describe("svelte2 rollup plugin", () => {
 
         const [{ code }] = output;
 
-        expect(code).toMatch("console.log(SvelteComponent);");
+        expect(code).toMatch("console.log(Component);");
     });
     
     it("should support preprocessors & dependency-tracking", async () => {

@@ -1,6 +1,8 @@
 const { compile, preprocess } = require("svelte/compiler.js");
 const { createFilter } = require("rollup-pluginutils");
 
+const sanitize = require("./sanitize.js");
+
 const defaults = {
     include    : [ /\.svelte$/ ],
     exclude    : [ "**/node_modules/**" ],
@@ -36,6 +38,7 @@ module.exports = (args = {}) => {
                 ...(args.options || {}),
                 
                 filename,
+                name : sanitize(filename),
             });
 
             warnings.forEach((warning) => this.warn(warning));
