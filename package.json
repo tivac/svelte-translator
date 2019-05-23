@@ -35,7 +35,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-jest": "^22.5.1",
     "jest": "^24.8.0",
-    "jest-serializer-html": "^6.0.0",
+    "jest-serializer-html": "^7.0.0",
     "p-immediate": "^3.1.0",
     "require-from-string": "^2.0.2",
     "rollup": "^1.12.1",
