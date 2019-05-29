@@ -1,4 +1,4 @@
-# svelte-translator
+# svelte-translator [![Build Status](https://img.shields.io/travis/tivac/svelte-translator/master.svg)](https://travis-ci.org/tivac/svelte-translator) [![NPM Version](https://img.shields.io/npm/v/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator) [![NPM License](https://img.shields.io/npm/l/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator) [![NPM Downloads](https://img.shields.io/npm/dm/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator)
 
 Use svelte v2 features inside svelte v3, and use svelte v3 features inside svelte v2. Because sometimes there's no amount of automated component rewriting that will make things work but you want to start a gradual transition.
 
