@@ -1,3 +1,12 @@
+## [3.1.4](https://github.com/tivac/svelte-translator/compare/v3.1.3...v3.1.4) (2019-05-29)
+
+
+### Features
+
+* **rollup:** dependency tracking for svelte2 ([98ede4c](https://github.com/tivac/svelte-translator/commit/98ede4c))
+
+
+
 ## [3.1.3](https://github.com/tivac/svelte-translator/compare/v3.1.2...v3.1.3) (2019-05-17)
 
 
