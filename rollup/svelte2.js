@@ -28,9 +28,33 @@ module.exports = (args = {}) => {
                 return null;
             }
 
-            const result = options.preprocess ?
-                await preprocess(code, { ...options.preprocess, filename }) :
-                await Promise.resolve({ toString : () => code });
+            const dependencies = new Set();
+            
+            let result;
+
+            if(options.preprocess) {
+                // Monkey-patch all potential preprocess tags (style, script, markup)
+                // to capture any dependency info they might return
+                const facade = Object.create(null);
+
+                facade.filename = filename;
+
+                Object.keys(options.preprocess).forEach((key) => {
+                    facade[key] = async (...params) => {
+                        const out = await options.preprocess[key](...params);
+
+                        if(out.dependencies) {
+                            out.dependencies.forEach((dep) => dependencies.add(dep));
+                        }
+
+                        return out;
+                    };
+                });
+
+                result = await preprocess(code, facade);
+            } else {
+                result = await Promise.resolve({ toString : () => code });
+            }
 
             const { js } = compile(result.toString(), {
                 onwarn : (warning) => this.warn(warning),
@@ -41,6 +65,8 @@ module.exports = (args = {}) => {
                 filename,
                 name : sanitize(filename),
             });
+
+            dependencies.forEach((dep) => this.addWatchFile(dep));
 
             return js;
         },
