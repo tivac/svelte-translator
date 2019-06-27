@@ -40,10 +40,10 @@ $> npm install svelte@latest
 Wrap up a v3 component so it can be included within a svelte2 component.
 
 ```html
-<Wrapper {...props} />
+<Wrapper {component} {props} />
 
 <script>
-import Component from "your-svelte3-component.svelte";
+import Component from "./svelte3-component.svelte";
 
 export default {
     components : {
@@ -52,20 +52,17 @@ export default {
 
     data : () => ({
         component : Component,
+        props     : {
+            // any props for the component
+        }
     }),
-
-    // This computed is here so that this component can essentially be invisible, it
-    // exists solvely to help the transition and can be removed once v2 is gone
-    computed : {
-        props : (state) => state,
-    },
 };
 ```
 
 | Data | Usage |
 | --- | --- |
 | `component` | The v3 component to wrap |
-| `...` | All other props on the component are passed directly to the v3 component |
+| `props` | Properties to set on the v3 component |
 
 #### Stores
 
