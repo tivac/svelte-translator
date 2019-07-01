@@ -1,3 +1,17 @@
+# [4.0.0](https://github.com/tivac/svelte-translator/compare/v3.1.4...v4.0.0) (2019-07-01)
+
+
+### Features
+
+* Split props out into a separate field ([#35](https://github.com/tivac/svelte-translator/issues/35)) ([774acd6](https://github.com/tivac/svelte-translator/commit/774acd6))
+
+
+### BREAKING CHANGES
+
+* Props for the svelte3 component must now be passed to the wrapped as `props` instead of the entire state of the wrapper being passed along. This prevents warnings from svelte3 components and is generally cleaner overall.
+
+
+
 ## [3.1.4](https://github.com/tivac/svelte-translator/compare/v3.1.3...v3.1.4) (2019-05-29)
 
 
