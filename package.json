@@ -22,27 +22,27 @@
   "author": "Pat Cavit <npm@patcavit.com>",
   "license": "MIT",
   "dependencies": {
-    "rollup-pluginutils": "^2.7.0"
+    "rollup-pluginutils": "^2.8.1"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
-    "@tivac/eslint-config": "^2.3.1",
+    "@tivac/eslint-config": "^2.4.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "babel-plugin-add-module-exports": "^1.0.2",
     "conventional-changelog-cli": "^2.0.21",
-    "eslint": "^6.0.0",
-    "eslint-plugin-jest": "^22.5.1",
+    "eslint": "^6.0.1",
+    "eslint-plugin-jest": "^22.7.1",
     "jest": "^24.8.0",
     "jest-serializer-html": "^6.0.0",
     "p-immediate": "^3.1.0",
     "require-from-string": "^2.0.2",
-    "rollup": "^1.12.1",
+    "rollup": "^1.16.2",
     "rollup-plugin-hypothetical": "^2.1.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-node-resolve": "^5.1.0",
     "snapshot-diff": "^0.5.1",
-    "svelte": "^3.4.1",
+    "svelte": "^3.6.1",
     "svelte2": "npm:svelte@^2"
   },
   "peerDependencies": {

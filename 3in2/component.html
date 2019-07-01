@@ -6,13 +6,13 @@ export default {
         // svelte3 component to invoke
         component : false,
 
-        // All values are passed to the svelte3 component as props!
+        // props for the component
+        props : {},
     }),
 
     methods : {
         instantiate() {
-            const props = this.get();
-            const { component } = props;
+            const { component, props } = this.get();
             const { anchor } = this.refs;
 
             // Cleanup any previous component instance first
@@ -56,7 +56,7 @@ export default {
             }
 
             if(this.instance) {
-                return this.instance.$set(current);
+                return this.instance.$set(current.props);
             }
         });
     },

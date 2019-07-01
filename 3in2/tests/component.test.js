@@ -29,7 +29,7 @@ describe("3in2 component wrapper", () => {
         expect(() => new Wrapper({
             target : root,
             data   : {
-                component : true
+                component : true,
             },
         })).toThrowErrorMatchingSnapshot();
     });
@@ -55,7 +55,9 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                a : "A",
+                props : {
+                    a : "A",
+                },
             },
         });
 
@@ -69,14 +71,18 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                a : "A",
+                props : {
+                    a : "A",
+                },
             },
         });
 
         expect(root.innerHTML).toMatchSnapshot();
 
         wrapper.set({
-            a : "A2",
+            props : {
+                a : "A2",
+            },
         });
 
         await wait();
@@ -91,7 +97,9 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                a : "A",
+                props : {
+                    a : "A",
+                },
             },
         });
 
@@ -99,7 +107,10 @@ describe("3in2 component wrapper", () => {
 
         wrapper.set({
             component : ComponentA,
-            a : "A2",
+
+            props : {
+                a : "A2",
+            },
         });
 
         await wait();
@@ -114,7 +125,9 @@ describe("3in2 component wrapper", () => {
             data : {
                 component : ComponentA,
 
-                a : "A",
+                props : {
+                    a : "A",
+                },
             },
         });
 
@@ -156,7 +169,7 @@ describe("3in2 component wrapper", () => {
                     class      : "class",
                     style      : "color: red;",
                     "data-foo" : "data-foo",
-                }
+                },
             },
         });
 
