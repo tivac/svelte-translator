@@ -1,3 +1,12 @@
+## [4.0.1](https://github.com/tivac/svelte-translator/compare/v4.0.0...v4.0.1) (2019-08-28)
+
+
+### Bug Fixes
+
+* Handle Map/Set correctly ([#52](https://github.com/tivac/svelte-translator/issues/52)) ([ae6277d](https://github.com/tivac/svelte-translator/commit/ae6277d))
+
+
+
 # [4.0.0](https://github.com/tivac/svelte-translator/compare/v3.1.4...v4.0.0) (2019-07-01)
 
 
