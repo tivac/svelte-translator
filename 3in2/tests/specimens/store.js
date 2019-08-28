@@ -1,6 +1,7 @@
 const { readable, writable } = require("svelte/store");
 const Adapter = require("../../store.js");
 
+// eslint-disable-next-line no-empty-function
 const noop = () => {};
 
 const writablereadable = (value) => {

@@ -7,7 +7,7 @@ const {
     readableSimple,
     writableSimple,
     readableObject,
-    writableObject
+    writableObject,
 } = require("./specimens/store.js");
 
 describe("3in2 store adapter", () => {
@@ -19,23 +19,23 @@ describe("3in2 store adapter", () => {
 
     it("should render readable stores that return a simple value", async () => {
         const Component = require("./specimens/readable-simple.html");
-        
+
         new Component({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         readableSimple._store._write(1);
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-            
+
     it("should render readable stores that return an object", async () => {
         const Component = require("./specimens/readable-object.html");
 
         new Component({
-            target : root
+            target : root,
         });
 
         expect(root.innerHTML).toMatchSnapshot();
@@ -44,26 +44,26 @@ describe("3in2 store adapter", () => {
 
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
     it("should render writable stores that return a simple value", async () => {
         const Component = require("./specimens/writable-simple.html");
-        
+
         new Component({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         writableSimple._store.set(1);
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-            
+
     it("should render writable stores that return an object", async () => {
         const Component = require("./specimens/writable-object.html");
 
         new Component({
-            target : root
+            target : root,
         });
 
         expect(root.innerHTML).toMatchSnapshot();
@@ -80,7 +80,7 @@ describe("3in2 store adapter", () => {
         store.set(1);
 
         expect(store.get()).toMatchSnapshot();
-        
+
         const unsubscribe = original.subscribe((value) => expect(value).toMatchSnapshot());
 
         unsubscribe();
