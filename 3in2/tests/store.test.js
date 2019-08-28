@@ -1,13 +1,13 @@
 "use strict";
 
-const { writable } = require("svelte/store");
+const { writable, readable } = require("svelte/store");
 const Adapter = require("../store.js");
 
 const {
     readableSimple,
     writableSimple,
     readableObject,
-    writableObject
+    writableObject,
 } = require("./specimens/store.js");
 
 describe("3in2 store adapter", () => {
@@ -19,23 +19,23 @@ describe("3in2 store adapter", () => {
 
     it("should render readable stores that return a simple value", async () => {
         const Component = require("./specimens/readable-simple.html");
-        
+
         new Component({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         readableSimple._store._write(1);
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-            
+
     it("should render readable stores that return an object", async () => {
         const Component = require("./specimens/readable-object.html");
 
         new Component({
-            target : root
+            target : root,
         });
 
         expect(root.innerHTML).toMatchSnapshot();
@@ -44,26 +44,26 @@ describe("3in2 store adapter", () => {
 
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
     it("should render writable stores that return a simple value", async () => {
         const Component = require("./specimens/writable-simple.html");
-        
+
         new Component({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         writableSimple._store.set(1);
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-            
+
     it("should render writable stores that return an object", async () => {
         const Component = require("./specimens/writable-object.html");
 
         new Component({
-            target : root
+            target : root,
         });
 
         expect(root.innerHTML).toMatchSnapshot();
@@ -80,7 +80,7 @@ describe("3in2 store adapter", () => {
         store.set(1);
 
         expect(store.get()).toMatchSnapshot();
-        
+
         const unsubscribe = original.subscribe((value) => expect(value).toMatchSnapshot());
 
         unsubscribe();
@@ -88,5 +88,21 @@ describe("3in2 store adapter", () => {
 
     it("should throw if .set() is called against a readable store", async () => {
         expect(() => readableSimple.set(0)).toThrowErrorMatchingSnapshot();
+    });
+
+    it("should put Arrays onto .value instead of splatting them", async () => {
+        const store = new Adapter(readable([]));
+
+        expect(store.get()).toMatchSnapshot();
+    });
+
+    it("should put Maps/Sets onto .value instead of splatting them", async () => {
+        const map = new Adapter(readable(new Map()));
+
+        expect(map.get()).toMatchSnapshot();
+
+        const set = new Adapter(readable(new Set()));
+
+        expect(set.get()).toMatchSnapshot();
     });
 });
