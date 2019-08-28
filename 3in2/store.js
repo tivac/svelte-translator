@@ -8,10 +8,10 @@ class AdapterStore extends Svelte2Store {
 
         // Save a reference to the original set before it's overwritten below
         this.__set = this.set;
-        
+
         const unsubscribe = store.subscribe((value) => {
-            // Objects are splatted
-            if(typeof value === "object" && !Array.isArray(value)) {
+            // Objects are splatted, arrays & map/set need to be regular values
+            if(typeof value === "object" && !Array.isArray(value) && !value[Symbol.iterator]) {
                 return this.__set(value);
             }
 

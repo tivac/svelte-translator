@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`3in2 store adapter should put Arrays onto .value instead of splatting them 1`] = `
+Object {
+  "value": Array [],
+}
+`;
+
+exports[`3in2 store adapter should put Maps/Sets onto .value instead of splatting them 1`] = `
+Object {
+  "value": Map {},
+}
+`;
+
+exports[`3in2 store adapter should put Maps/Sets onto .value instead of splatting them 2`] = `
+Object {
+  "value": Set {},
+}
+`;
+
 exports[`3in2 store adapter should render readable stores that return a simple value 1`] = `
 
 <div>
