@@ -9,7 +9,7 @@ const defaults = {
     preprocess : [],
     options    : {
         format     : "esm",
-        sveltePath : "svelte"
+        sveltePath : "svelte",
     },
 };
 
@@ -36,7 +36,7 @@ module.exports = (args = {}) => {
             const { js, warnings } = compile(processed, {
                 ...defaults.options,
                 ...(args.options || {}),
-                
+
                 filename,
                 name : sanitize(filename),
             });

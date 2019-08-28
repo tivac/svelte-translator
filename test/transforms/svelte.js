@@ -7,7 +7,7 @@ module.exports = {
             {
                 filename,
                 format     : "cjs",
-                sveltePath : "svelte"
+                sveltePath : "svelte",
             }
         );
 

@@ -31,7 +31,7 @@ describe("svelte-translator rollup plugins", () => {
         });
 
         const { output } = await bundle.generate({
-            format : "es"
+            format : "es",
         });
 
         const [{ code }] = output;
@@ -70,8 +70,10 @@ describe("svelte-translator rollup plugins", () => {
         });
 
         await bundle.generate({
-            format : "es"
+            format : "es",
         });
+
+        warnings.sort(({ plugin : a }, { plugin : b }) => a.localeCompare(b));
 
         expect(warnings).toMatchSnapshot();
     });

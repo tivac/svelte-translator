@@ -8,7 +8,7 @@ describe("2in3 store adapter", () => {
     const { default : Extended } = require("./specimens/extended.svelte");
     const { default : Derived } = require("./specimens/derived.svelte");
     const { default : Reactive } = require("./specimens/reactive.svelte");
-    
+
     let root;
 
     beforeEach(() => {
@@ -20,7 +20,7 @@ describe("2in3 store adapter", () => {
             one : 1,
             two : 2,
         });
-        
+
         extended.set({
             one : 1,
             two : 2,
@@ -29,65 +29,65 @@ describe("2in3 store adapter", () => {
 
     it("should render simple store values", async () => {
         new Simple({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         simple.set({
-            two : 3
+            two : 3,
         });
 
         await tick();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
     it("should render extended store values", async () => {
         new Extended({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         extended.set({
-            two : 3
+            two : 3,
         });
 
         await tick();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
 
     it("should render derived store values", async () => {
         new Derived({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         simple.set({
-            two : 3
+            two : 3,
         });
 
         await tick();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
-    
+
     it("should be able to reactively update from store values", async () => {
         new Reactive({
-            target : root
+            target : root,
         });
-        
+
         expect(root.innerHTML).toMatchSnapshot();
-        
+
         simple.set({
-            two : 3
+            two : 3,
         });
 
         await tick();
-        
+
         expect(root.innerHTML).toMatchSnapshot();
     });
 

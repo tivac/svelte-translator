@@ -28,14 +28,14 @@ describe("svelte3 rollup plugin", () => {
         });
 
         const { output } = await bundle.generate({
-            format : "es"
+            format : "es",
         });
 
         const [{ code }] = output;
 
         expect(code).toMatch("console.log(Component);");
     });
-    
+
     it("should support preprocessors & dependency-tracking", async () => {
         const bundle = await rollup({
             input : "svelte3.js",
@@ -61,10 +61,10 @@ describe("svelte3 rollup plugin", () => {
                         script({ content }) {
                             return {
                                 code : content.replace("a mystery", 42),
-                                
+
                                 // Can't test this, but we can at least make sure it doesn't error
                                 dependencies : [
-                                    "./fake.file"
+                                    "./fake.file",
                                 ],
                             };
                         },
@@ -74,7 +74,7 @@ describe("svelte3 rollup plugin", () => {
         });
 
         const { output } = await bundle.generate({
-            format : "es"
+            format : "es",
         });
 
         const [{ code }] = output;

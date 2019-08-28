@@ -21,6 +21,10 @@
   ],
   "author": "Pat Cavit <npm@patcavit.com>",
   "license": "MIT",
+  "repository": "tivac/svelte-translator",
+  "bugs": {
+    "url": "https://github.com/tivac/svelte-translator/issues"
+  },
   "dependencies": {
     "rollup-pluginutils": "^2.8.1"
   },

@@ -28,14 +28,14 @@ describe("svelte2 rollup plugin", () => {
         });
 
         const { output } = await bundle.generate({
-            format : "es"
+            format : "es",
         });
 
         const [{ code }] = output;
 
         expect(code).toMatch("console.log(Component);");
     });
-    
+
     it("should support preprocessors & dependency-tracking", async () => {
         const bundle = await rollup({
             input : "svelte2.js",
@@ -69,7 +69,7 @@ describe("svelte2 rollup plugin", () => {
         });
 
         const { output } = await bundle.generate({
-            format : "es"
+            format : "es",
         });
 
         const [{ code }] = output;
