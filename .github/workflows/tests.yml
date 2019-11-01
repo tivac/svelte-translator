@@ -3,20 +3,6 @@ name: Tests
 on: [ push ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-
-    - name: Install dependencies
-      run: npm ci
-
-    - name: Lint
-      uses: gimenete/eslint-action@1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   test:
     name: node@${{ matrix.node_version }} on ${{ matrix.os }}
 
