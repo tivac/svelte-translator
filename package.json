@@ -37,7 +37,7 @@
     "babel-plugin-add-module-exports": "^1.0.2",
     "conventional-changelog-cli": "^2.0.23",
     "eslint": "^7.3.1",
-    "eslint-plugin-jest": "^23.0.2",
+    "eslint-plugin-jest": "^24.0.2",
     "jest": "^26.2.2",
     "jest-serializer-html": "^6.0.0",
     "p-immediate": "^3.1.0",
