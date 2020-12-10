@@ -1,4 +1,4 @@
-const { compile, preprocess } = require("svelte/compiler.js");
+const { compile, preprocess } = require("svelte/compiler");
 const { createFilter } = require("rollup-pluginutils");
 
 const sanitize = require("./sanitize.js");
