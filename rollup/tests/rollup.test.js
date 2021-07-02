@@ -36,7 +36,7 @@ describe("svelte-translator rollup plugins", () => {
 
         const [{ code }] = output;
 
-        expect(code).toMatch("console.log(Component, Component$1);");
+        expect(code).toMatch("console.log(Component$1, Component);");
     });
 
     it("should capture all warnings", async () => {
