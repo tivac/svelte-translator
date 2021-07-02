@@ -40,6 +40,7 @@
     "eslint-plugin-jest": "^24.0.2",
     "jest": "^27.0.6",
     "jest-serializer-html": "^6.0.0",
+    "node-notifier": "^10.0.0",
     "p-immediate": "^3.1.0",
     "require-from-string": "^2.0.2",
     "rollup": "^2.3.2",
@@ -50,7 +51,7 @@
     "svelte2": "npm:svelte@^2"
   },
   "peerDependencies": {
-    "svelte2": "npm:svelte@^2",
-    "svelte": "^3"
+    "svelte": "^3",
+    "svelte2": "npm:svelte@^2"
   }
 }
