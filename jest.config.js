@@ -3,6 +3,8 @@
 module.exports = {
     notify : true,
 
+    testEnvironment : "jsdom",
+
     setupFilesAfterEnv : [
         "<rootDir>/test/expect/toMatchDiffSnapshot.js",
     ],
