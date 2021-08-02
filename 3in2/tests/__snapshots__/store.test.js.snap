@@ -19,67 +19,51 @@ Object {
 `;
 
 exports[`3in2 store adapter should render readable stores that return a simple value 1`] = `
-
 <div>
   0
 </div>
-
 `;
 
 exports[`3in2 store adapter should render readable stores that return a simple value 2`] = `
-
 <div>
   1
 </div>
-
 `;
 
 exports[`3in2 store adapter should render readable stores that return an object 1`] = `
-
 <div>
   0 - 0
 </div>
-
 `;
 
 exports[`3in2 store adapter should render readable stores that return an object 2`] = `
-
 <div>
   fooga - wooga
 </div>
-
 `;
 
 exports[`3in2 store adapter should render writable stores that return a simple value 1`] = `
-
 <div>
   0
 </div>
-
 `;
 
 exports[`3in2 store adapter should render writable stores that return a simple value 2`] = `
-
 <div>
   1
 </div>
-
 `;
 
 exports[`3in2 store adapter should render writable stores that return an object 1`] = `
-
 <div>
   0 - 0
 </div>
-
 `;
 
 exports[`3in2 store adapter should render writable stores that return an object 2`] = `
-
 <div>
   fooga - wooga
 </div>
-
 `;
 
 exports[`3in2 store adapter should throw if .set() is called against a readable store 1`] = `"Called .set() on a readable store"`;

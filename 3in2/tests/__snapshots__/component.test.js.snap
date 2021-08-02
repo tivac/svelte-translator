@@ -1,90 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`3in2 component wrapper should render a svelte3 component 1`] = `
-
 <p>
   a? a!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should render a svelte3 component w/ props 1`] = `
-
 <p>
   a? A!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should set attributes on the wrapper element it creates 1`] = `
-
 <p>
   a? a!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should support creation without a component 1`] = `
-
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should support creation without a component 2`] = `
-
 <p>
   B? b!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should support swapping out the svelte3 component 1`] = `
-
 <p>
   a? A!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should support swapping out the svelte3 component 2`] = `
-
 <p>
   B? b!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should throw if not given a svelte3 component 1`] = `"Invalid svelte3 component passed to wrapper"`;
 
 exports[`3in2 component wrapper should update the svelte3 component when props change 1`] = `
-
 <p>
   a? A!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
 
 exports[`3in2 component wrapper should update the svelte3 component when props change 2`] = `
-
 <p>
   a? A2!
 </p>
 <span data-svelte-translator="3in2-wrapper-anchor">
 </span>
-
 `;
