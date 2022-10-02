@@ -46,7 +46,7 @@
     "rollup": "^2.3.2",
     "rollup-plugin-hypothetical": "^2.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "snapshot-diff": "^0.9.0",
+    "snapshot-diff": "^0.10.0",
     "svelte": "^3.6.1",
     "svelte2": "npm:svelte@^2"
   },
