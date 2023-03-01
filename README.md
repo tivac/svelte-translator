@@ -1,4 +1,10 @@
-# svelte-translator [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftivac%2Fsvelte-translator%2Fbadge&style=flat)](https://actions-badge.atrox.dev/tivac/svelte-translator/goto) [![NPM Version](https://img.shields.io/npm/v/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator) [![NPM License](https://img.shields.io/npm/l/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator) [![NPM Downloads](https://img.shields.io/npm/dm/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator)
+# svelte-translator [![Build Status](https://github.com/tivac/svelte-translator/actions/workflows/tests.yml/badge.svg)](https://github.com/tivac/svelte-translator/actions) [![NPM Version](https://img.shields.io/npm/v/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator) [![NPM License](https://img.shields.io/npm/l/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator) [![NPM Downloads](https://img.shields.io/npm/dm/svelte-translator.svg)](https://www.npmjs.com/package/svelte-translator)
+
+## :warning: This package is no longer actively supported :warning:
+
+It should continue working just fine but no more features or bug fixes will be added.
+
+---
 
 Use svelte v2 features inside svelte v3, and use svelte v3 features inside svelte v2. Because sometimes there's no amount of automated component rewriting that will make things work but you want to start a gradual transition.
 
